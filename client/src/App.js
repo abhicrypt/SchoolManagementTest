@@ -24,22 +24,7 @@ function App({formData,edittask,Key,onCharngeFilter,handleSubmitA}) {
     }).catch(err => console.log(err))
   },[formData,monitorId])
 
-// post new row
-  useEffect(() => {
-    axios
-      .post("http://localhost:8000/api/tasks", formData)
-      .then((res) => {
-        // Handle success
-        console.log(res);
-        // toast.success(<SuccessToast header="Success" body='okkkkkkkkk' />,  { transition: Slide, hideProgressBar: true, autoClose: 2000 })
-        <SuccessToast message="Success! Your action was completed." />;
-        handleClose = false;
-      })
-      .catch((error) => {
-        // Handle error
-        console.error(error);
-      });
-    }, []);
+
   
  
 
@@ -72,7 +57,7 @@ function App({formData,edittask,Key,onCharngeFilter,handleSubmitA}) {
      
      <button onClick={handleOpenModal} className="btn btn-primary">Add</button>
      
-      <ModalForm show={showModal} handleClose={handleCloseModal} handleSubmitA={handleSubmitA}/>
+      <ModalForm show={showModal} handleClose={handleCloseModal} />
       <EditModal show={showModalB} handleClose={handleCloseModalB} key={Key} formData={formData}/>
       <Table data = {todolist}  removeTask = {removeTask} edittask={edittask} handleOpenModalB={handleOpenModalB}/>
       
