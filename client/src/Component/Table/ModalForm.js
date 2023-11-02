@@ -3,7 +3,7 @@ import axios from "axios";
 import "./ModalForm.css";
 import SuccessToast from "../../Reusable/ToastMessage";
 import { Slide, toast } from "react-toastify";
-
+import { XSquare ,X} from 'react-feather';
 const ModalForm = ({ show, handleClose, formData }) => {
   // const FormComponent = () => {
   const nameRef = useRef();
@@ -23,7 +23,7 @@ const ModalForm = ({ show, handleClose, formData }) => {
 
     // useEffect(() => {
     axios
-      .post("http://localhost:8000/api", formData)
+      .post("http://localhost:8000/api/tasks", formData)
       .then((res) => {
         // Handle success
         console.log(res);
@@ -44,9 +44,10 @@ const ModalForm = ({ show, handleClose, formData }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Modal Form</h5>
-            <button type="button" className="close" onClick={handleClose}>
+            <X size={32} className="close" onClick={handleClose}/>
+            {/* <button type="button" className="close" onClick={handleClose}>
               <span>&times;</span>
-            </button>
+            </button> */}
           </div>
           <div className="modal-body">
             <form className="form-container" onSubmit={handleSubmitA}>
